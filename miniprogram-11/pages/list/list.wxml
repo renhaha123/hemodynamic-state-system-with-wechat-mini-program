@@ -1,0 +1,220 @@
+<!--pages/list/list.wxml-->
+<view class="container">
+  <text class="record-list_text">病人信息总览</text>
+  <view class='detailModel' wx:if='{{showDetail}}'>
+    <view class="detailContent">
+      <text style="font-size:40rpx;font-weight: bold;text-align: center;">记录详情</text>
+      <view class="detailHeader">
+        <text >{{name}}</text>
+        <text >{{admission_number}}</text>
+        <text> {{date}}</text>
+      </view>
+      <view class="detailUser">
+        <text>性别：{{gender}}</text>
+        <text>身高：{{height}} cm</text>
+        <text decode="{{true}}">&ensp;Hb：{{Hb}} g/dL</text>
+        <text>年龄：{{age}} 岁</text>
+        <text>体重：{{weight}} kg</text>
+        <text>CVP：{{CVP}} mmHg</text>
+        <text style="grid-column: span 3;">身高质量指数：{{BMI}} kg/m²</text>
+      </view>
+      <view class="allIndex">
+          <text>参数</text>
+          <text>单位</text>
+          <text>数值</text>
+          <text></text>
+          <text>正常范围</text>
+
+          <text style="font-weight: bold;grid-column: span 5;">流量</text>
+          <text>心率(HR)</text>
+          <text>bpm</text>
+          <text style="color: {{heart_rate>90||heart_rate<54 ?'red':'black'}};">{{heart_rate}}</text>
+          <view>
+            <image class='text_image' src="/pages/icon/arrow_down.png" wx:if="{{heart_rate<54}}" ></image>
+            <image class='text_image' src="/pages/icon/arrow_up.png" wx:elif="{{heart_rate>90}}"></image>
+            <text wx:else></text>
+          </view>
+          <text>54 - 90</text>
+          <text>每搏心输出量(SV)</text>
+          <text>ml</text>
+          <text style="color: {{stroke_volume>90||stroke_volume<54 ?'red':'black'}};">{{stroke_volume}}</text>
+          <view>
+            <image class='text_image' src="/pages/icon/arrow_down.png" wx:if="{{stroke_volume<54}}"></image>
+            <image class='text_image' src="/pages/icon/arrow_up.png" wx:elif="{{stroke_volume>90}}"></image>
+            <text wx:else></text>
+          </view>
+          <text>54 - 90</text>
+          <text>每搏输出指数(SI)</text>
+          <text>BSA</text>
+          <text style="color: {{stroke_index>56||stroke_index<33 ?'red':'black'}};">{{stroke_index}}</text>
+          <view>
+            <image class='text_image' src="/pages/icon/arrow_down.png" wx:if="{{stroke_index<33}}"></image>
+            <image class='text_image' src="/pages/icon/arrow_up.png" wx:elif="{{stroke_index>56}}"></image>
+            <text wx:else></text>
+          </view>
+          <text>33 - 56</text>
+          <text>心排量(CO)</text>
+          <text>l/min</text>
+          
+          <text style="color: {{cardiac_output>5.6||cardiac_output<3.9 ?'red':'black'}};">{{cardiac_output}}</text>
+          <view>
+            <image class='text_image' src="/pages/icon/arrow_down.png" wx:if="{{cardiac_output<3.9}}"></image>
+            <image class='text_image' src="/pages/icon/arrow_up.png" wx:elif="{{cardiac_output>5.6}}"></image>
+            <text wx:else></text>
+          </view>
+          <text>3.9 - 5.6</text>
+          <text>心排指数(CI)</text>
+          <text>BSA</text>       
+          <text style="color: {{cardiac_output_index>4.0||cardiac_output_index<2.4 ?'red':'black'}};">{{cardiac_output_index}}</text>
+          <view>
+            <image class='text_image' src="/pages/icon/arrow_down.png" wx:if="{{cardiac_output_index<2.4}}"></image>
+            <image class='text_image' src="/pages/icon/arrow_up.png" wx:elif="{{cardiac_output_index>4.0}}"></image>
+            <text wx:else></text>
+          </view>
+          <text>2.4 - 4.0</text>
+
+          <text style="font-weight: bold;grid-column: span 5;">液体状态</text>
+          <text>每搏输出量变异(SVV)</text>
+          <text>%</text>
+          <text style="color: {{stroke_volume_variation>15||stroke_volume_variation<5 ?'red':'black'}};">{{stroke_volume_variation}}</text>
+          <view>
+            <image class='text_image' src="/pages/icon/arrow_down.png" wx:if="{{stroke_volume_variation<5}}"></image>
+            <image class='text_image' src="/pages/icon/arrow_up.png" wx:elif="{{stroke_volume_variation>15}}"></image>
+            <text wx:else></text>
+          </view>
+          <text>5 - 15</text>
+          <text>修正的射血时间(FTC)</text>
+          <text>ms</text>
+          <text style="color: {{revised_ejection_time<300||revised_ejection_time>500 ?'red':'black'}};">{{revised_ejection_time}}</text>
+          <view>
+            <image class='text_image' src="/pages/icon/arrow_down.png" wx:if="{{revised_ejection_time<300}}"></image>
+            <image class='text_image' src="/pages/icon/arrow_up.png" wx:elif="{{revised_ejection_time>500}}"></image>
+            <text wx:else></text>
+          </view>
+          <text>300 - 500</text>
+          <text>胸腔液体水平(TFC)</text>
+          <text></text>
+          <text style="color: {{thoracic_fluid_content<25||thoracic_fluid_content>35 ?'red':'black'}};">{{thoracic_fluid_content}}</text>
+          <view>
+            <image class='text_image' src="/pages/icon/arrow_down.png" wx:if="{{thoracic_fluid_content<25}}"></image>
+            <image class='text_image' src="/pages/icon/arrow_up.png" wx:elif="{{thoracic_fluid_content>35}}"></image>
+            <text wx:else></text>
+          </view>
+          <text>25 - 35</text>
+
+          <text style="font-weight: bold;grid-column: span 5;">阻力</text>
+          <text>外周血管阻力(SVR)</text>
+          <text style="font-size: small;">dyn·s\n/cm⁵</text>
+          <text style="color: {{SVR>1483||SVR<890 ?'red':'black'}};">{{SVR}}</text>
+          <view>
+            <image class='text_image' src="/pages/icon/arrow_down.png" wx:if="{{SVR<890}}"></image>
+            <image class='text_image' src="/pages/icon/arrow_up.png" wx:elif="{{SVR>1483}}"></image>
+            <text wx:else></text>
+          </view>
+          <text>890-1483</text>
+          <text>外周血管阻力指数(SVRI)</text>
+          <text>BSA</text>
+          <text style="color: {{SVRI>2406||SVRI<1444 ?'red':'black'}};">{{SVRI}}</text>
+          <view>
+            <image class='text_image' src="/pages/icon/arrow_down.png" wx:if="{{SVRI<1444}}"></image>
+            <image class='text_image' src="/pages/icon/arrow_up.png" wx:elif="{{SVRI>2406}}"></image>
+            <text wx:else></text>
+          </view>
+          <text>1444-2406</text>
+          <text style="grid-column: span 5;"></text>
+          <text style="font-weight: bold;grid-column: span 5;">心脏</text>
+          <text>心肌收缩指数(ICON)</text>
+          <text></text>
+          <text style="color: {{ICON>62.5||ICON<37.5 ?'red':'black'}};">{{ICON}}</text>
+          <view>
+            <image class='text_image' src="/pages/icon/arrow_down.png" wx:if="{{ICON<37.5}}"></image>
+            <image class='text_image' src="/pages/icon/arrow_up.png" wx:elif="{{ICON>62.5}}"></image>
+            <text wx:else></text>
+          </view>
+          <text>37.5 - 62.5</text>
+          <text>收缩时间比率(STR)</text>
+          <text></text>
+          <text style="color: {{STR>0.50||STR<0.30 ?'red':'black'}};">{{STR}}</text>
+          <view>
+            <image class='text_image' src="/pages/icon/arrow_down.png" wx:if="{{STR<0.30}}"></image>
+            <image class='text_image' src="/pages/icon/arrow_up.png" wx:elif="{{STR>0.50}}"></image>
+            <text wx:else></text>
+          </view>
+          <text>0.30 - 0.50</text>
+          <text>预射血时间(PEP)</text>
+          <text>ms</text>
+          <text style="color: {{PEP>122||PEP<86 ?'red':'black'}};">{{PEP}}</text>
+          <view>
+            <image class='text_image' src="/pages/icon/arrow_down.png" wx:if="{{PEP<86}}"></image>
+            <image class='text_image' src="/pages/icon/arrow_up.png" wx:elif="{{PEP>122}}"></image>
+            <text wx:else></text>
+          </view>
+          <text>86 - 122</text>
+
+          <text style="font-weight: bold;grid-column: span 5;">血压</text>
+          <text>平均动脉压(MAP)</text>
+          <text>mmHg</text>
+          <text style="color: {{MAP>100||MAP<80 ?'red':'black'}};">{{MAP}}</text>
+          <view>
+            <image class='text_image' src="/pages/icon/arrow_down.png" wx:if="{{MAP<80}}"></image>
+            <image class='text_image' src="/pages/icon/arrow_up.png" wx:elif="{{MAP>100}}"></image>
+            <text wx:else></text>
+          </view>
+          <text>80 - 100</text>
+          <text>收缩动脉压(SBP)</text>
+          <text>mmHg</text>
+          <text style="color: {{SBP>140||SBP<100 ?'red':'black'}};">{{SBP}}</text>
+          <view>
+            <image class='text_image' src="/pages/icon/arrow_down.png" wx:if="{{SBP<100}}"></image>
+            <image class='text_image' src="/pages/icon/arrow_up.png" wx:elif="{{SBP>140}}"></image>
+            <text wx:else></text>
+          </view>
+          <text>100 - 140</text>
+          <text>舒张动脉压(DBP)</text>
+          <text>mmHg</text>
+          <text style="color: {{DBP>88||DBP<70 ?'red':'black'}};">{{DBP}}</text>
+          <view>
+            <image class='text_image' src="/pages/icon/arrow_down.png" wx:if="{{DBP<70}}"></image>
+            <image class='text_image' src="/pages/icon/arrow_up.png" wx:elif="{{DBP>88}}"></image>
+            <text wx:else></text>
+          </view>
+          <text>70 - 88</text>
+
+          <text style="font-weight: bold;grid-column: span 5;">决策支持的参数</text>
+          <text>左心室射血时间(LVET)</text>
+          <text>ms</text>
+          <text style="color: {{LVET>342||LVET<264 ?'red':'black'}};">{{LVET}}</text>
+          <view>
+            <image class='text_image' src="/pages/icon/arrow_down.png" wx:if="{{LVET<264}}"></image>
+            <image class='text_image' src="/pages/icon/arrow_up.png" wx:elif="{{LVET>342}}"></image>
+            <text wx:else></text>
+          </view>
+          <text>264 - 342</text>
+          <text>心肌收缩力指数变异(VIC)</text>
+          <text>%</text>
+          <text style="color: {{VIC>45||VIC<5 ?'red':'black'}};">{{VIC}}</text>
+          <view>
+            <image class='text_image' src="/pages/icon/arrow_down.png" wx:if="{{VIC<5}}"></image>
+            <image class='text_image' src="/pages/icon/arrow_up.png" wx:elif="{{VIC>45}}"></image>
+            <text wx:else></text>
+          </view>
+          <text>5 - 45</text>
+
+      </view>
+      <view style="width: 100%; font-size: 32rpx;margin-top: 10rpx;display: flex;justify-content: flex-end;">
+      <text>{{doctor}}医生</text></view>
+      <button class="detailContent_button" bindtap="closeDetail" disabled=""style="margin-top:20rpx;margin-bottom:20rpx" >确定</button>
+    </view>
+  </view>
+  <block wx:for="{{records}}" wx:key="index">
+    <view class="record-item" bindtap="showDetail" data-index="{{index}}">
+      <text style="font-weight: bold;">{{item.name}}</text>
+      <text>年龄：{{item.age}}岁</text>
+      <text>住院号：{{item.admission_number}}</text>
+      <text style="font-size:small;text-align: right;color: #313030;margin-bottom: 10rpx;">{{item.createTime}}</text>
+    </view>
+  </block>
+  <view wx:if="{{records.length === 0}}" class="no-data">
+    <text>暂无记录</text>
+  </view>
+</view>

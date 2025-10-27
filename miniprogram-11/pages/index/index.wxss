@@ -1,0 +1,74 @@
+/* pages/index/index.wxss */
+.container {
+  min-height: 0;
+  padding: 10rpx;
+  background-color: #f5f5f5;
+ 
+}
+.authModel{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modelContent{
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+}
+.modelContent text{
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.modelContent_button{
+  background-color: #88b5f5;
+  color: white;
+  margin-top: 10px;
+  color: white;
+}
+
+.container_text{
+  margin-bottom: 16rpx;
+  font-size: 33rpx;
+  font-weight: bold;
+}
+
+.section {
+  background-color: white;
+  border-radius: 10rpx;
+  border: 2px solid #e2e8f0;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  width: 80%;
+  height: 120rpx;
+
+}
+.section text {
+  margin-bottom: 12rpx;
+  display: block;
+}
+.section input {
+  border: 2rpx solid transparent;
+  /* width: 100%; */
+  margin-bottom: 10rpx;
+  font-size: 33rpx;
+}
+.section_button{
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  width: 80%;
+  height: 120rpx;
+}
+.container_button {
+  background-color: #88b5f5;
+  color: white;
+  border-radius: 10rpx;
+  padding: 8px;
+  width: 100%;
+}

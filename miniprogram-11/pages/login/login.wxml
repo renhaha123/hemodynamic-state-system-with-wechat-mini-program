@@ -1,0 +1,41 @@
+<!--pages/login/login.wxml-->
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <view class="userinfo">
+      <block>
+        <button class="avatar-wrapper" open-type="" bind:chooseavatar="">
+          <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+        </button>
+        <!-- <view class="nickname-wrapper">
+          <text class="nickname-label">昵称</text>
+          <input type="nickname" class="nickname-input" placeholder="请输入昵称" bind:change="onInputChange" />
+        </view> -->
+        <view class="name-wrapper">
+          <text class="name-label">姓名</text>
+          <input type="text" class="name-input" placeholder="请输入姓名" data-field="name" bindinput="inputChange"/>
+        </view>
+        <view class="pw-wrapper">
+          <text class="pw-label">密码</text>
+          <input type="text" class="pw-input" placeholder="请输入密码" data-field="pw" bindinput="inputChange"/>
+        </view>
+        <view class="val-wrapper">
+          <text class="val-label">验证码</text>
+          <input type="text" class="val-input" placeholder="请输入验证码" data-field="val" bindinput="inputChange"/>
+          <canvas id="myCanvas" type="2d" bindtap='change'></canvas>
+        </view>
+        <view class="button-wrapper">
+        <button form-type="reset" bindtap="register">注册</button>
+        <button bindtap="submit">登录</button>
+        </view>
+      </block>
+      <!-- <block wx:elif="{{!hasUserInfo}}">
+        <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
+        <view wx:else> 请使用2.10.4及以上版本基础库 </view>
+      </block> -->
+      <!-- <block wx:else>
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      </block> -->
+    </view>
+  </view>
+</scroll-view>

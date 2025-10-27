@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/list/list",
+    "pages/personal/personal",
+    "pages/register/register",
+    "pages/login/login"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#88b5f5",
+    "navigationBarTitleText": "血流动力状态",
+    "navigationBarTextStyle": "black"
+  },
+  "renderer": "webview",
+  "tabBar": {
+    "selectedColor": "#88b5f5",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "病人指标",
+        "iconPath": "./pages/icon/home_page.png",
+        "selectedIconPath":"./pages/icon/selected_home_page.png"
+      },
+      {
+        "pagePath": "pages/list/list",
+        "text": "查看记录",
+        "iconPath":"./pages/icon/show_info.png",
+        "selectedIconPath":"./pages/icon/selected_show_info.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "个人信息",
+        "iconPath":"./pages/icon/my.png",
+        "selectedIconPath":"./pages/icon/selected_my.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

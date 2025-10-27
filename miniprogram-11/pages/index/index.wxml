@@ -1,0 +1,136 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <view class='authModel' wx:if='{{showAuth}}'>
+    <view class="modelContent">
+      <text>授权登录</text>
+      <button class="modelContent_button" bindtap="toAuthorize" disabled="">点击授权登录</button>
+    </view>
+  </view>
+
+  <text class="container_text">病人信息</text>
+  <view class="section">
+    <text>姓名</text>
+    <input type="text" placeholder="{{inputDisable ? '' : '请输入姓名'}}" value="{{name}}" bindinput="inputChange" data-field="name" disabled="{{inputDisable}}" style="pointer-events:{{inputDisable?'none':'auto'}};"/>
+  </view>
+  <view class="section">
+    <text>住院号</text>
+    <input type="number" placeholder="{{inputDisable ? '' : '请输入住院号'}}" value="{{admission_number}}" bindinput="inputChange" data-field="admission_number" disabled="{{inputDisable}}" style="pointer-events:{{inputDisable?'none':'auto'}};"/>
+  </view>
+  <view class="section">
+    <text>性别</text>
+    <input type="text" placeholder="{{inputDisable ? '' : '请输入性别'}}" value="{{gender}}" bindinput="inputChange" data-field="gender" disabled="{{inputDisable}}" style="pointer-events:{{inputDisable?'none':'auto'}};"/>
+  </view>
+  <view class="section">
+    <text>出生日期</text>
+    <input type="text" placeholder="{{inputDisable ? '' : '请输入出生日期'}}" value="{{birth}}" bindinput="inputChange" data-field="birth" disabled="{{inputDisable}}" style="pointer-events:{{inputDisable?'none':'auto'}};"/>
+  </view>
+  <view class="section">
+    <text>年龄</text>
+    <input type="number" placeholder="{{inputDisable ? '' : '请输入年龄'}}" value="{{age}}" bindinput="inputChange" data-field="age" disabled="{{inputDisable}}" style="pointer-events:{{inputDisable?'none':'auto'}};"/>
+  </view>
+  <view class="section">
+    <text>身高(cm)</text>
+    <input type="number" placeholder="{{inputDisable ? '' : '请输入身高'}}" value="{{height}}" bindinput="inputChange" data-field="height" disabled="{{inputDisable}}" style="pointer-events:{{inputDisable?'none':'auto'}};"/>
+  </view>
+  <view class="section">
+    <text>体重(kg)</text>
+    <input type="number" placeholder="{{inputDisable ? '' : '请输入体重'}}" value="{{weight}}" bindinput="inputChange" data-field="weight" disabled="{{inputDisable}}" style="pointer-events:{{inputDisable?'none':'auto'}};"/>
+  </view>
+  <view class="section">
+    <text>Hb(g/dL)</text>
+    <input type="digit" placeholder="{{inputDisable ? '' : '请输入Hb'}}" value="{{Hb}}" bindinput="inputChange" data-field="Hb" disabled="{{inputDisable}}" style="pointer-events:{{inputDisable?'none':'auto'}};"/>
+  </view>
+  <view class="section">
+    <text>CVP(mmHg)</text>
+    <input type="number" placeholder="{{inputDisable ? '' : '请输入CVP'}}" value="{{CVP}}" bindinput="inputChange" data-field="CVP" disabled="{{inputDisable}}" style="pointer-events:{{inputDisable?'none':'auto'}};"/>
+  </view>
+
+  <text class="container_text">流量</text>
+  <view class="section">
+    <text>心率(bpm)</text>
+    <input type="number" placeholder="{{inputDisable ? '' : '请输入心率'}}" value="{{heart_rate}}" bindinput="inputChange" data-field="heart_rate" disabled="{{inputDisable}}" style="pointer-events:{{inputDisable?'none':'auto'}};"/>
+  </view>
+  <view class="section">
+    <text>每搏心输入量(ml)</text>
+    <input type="number" placeholder="{{inputDisable ? '' : '请输入每搏心输入量'}}" value="{{stroke_volume}}" bindinput="inputChange" data-field="stroke_volume" disabled="{{inputDisable}}" style="pointer-events:{{inputDisable?'none':'auto'}};"/>
+  </view>
+  <view class="section">
+    <text>每搏输出指数(BSA)</text>
+    <input type="number" placeholder="{{inputDisable ? '' : '请输入每搏输出指数'}}" value="{{stroke_index}}" bindinput="inputChange" data-field="stroke_index" disabled="{{inputDisable}}" style="pointer-events:{{inputDisable?'none':'auto'}};"/>
+  </view>
+  <view class="section">
+    <text>心排量(l/min)</text>
+    <input type="digit" placeholder="{{inputDisable ? '' : '请输入心排量'}}" value="{{cardiac_output}}" value="{{cardiac_output}}" bindinput="inputChange" data-field="cardiac_output" disabled="{{inputDisable}}" style="pointer-events:{{inputDisable?'none':'auto'}};"/>
+  </view>
+  <view class="section">
+    <text>心排指数(BSA)</text>
+    <input type="digit" placeholder="{{inputDisable ? '' : '请输入心排指数'}}" value="{{cardiac_output_index}}" bindinput="inputChange" data-field="cardiac_output_index" disabled="{{inputDisable}}" style="pointer-events:{{inputDisable?'none':'auto'}};"/>
+  </view>
+
+  <text class="container_text">液体状态</text>
+  <view class="section">
+    <text>每搏输出量变异(%)</text>
+    <input type="number" placeholder="{{inputDisable ? '' : '请输入每搏输出量变异'}}" value="{{stroke_volume_variation}}" bindinput="inputChange" data-field="stroke_volume_variation" disabled="{{inputDisable}}" style="pointer-events:{{inputDisable?'none':'auto'}};"/>
+  </view>
+  <view class="section">
+    <text>修正的射血时间(ms)</text>
+    <input type="number" placeholder="{{inputDisable ? '' : '请输入修正的射血时间'}}" value="{{revised_ejection_time}}" bindinput="inputChange" data-field="revised_ejection_time" disabled="{{inputDisable}}" style="pointer-events:{{inputDisable?'none':'auto'}};"/>
+  </view>
+  <view class="section">
+    <text>胸腔液体水平</text>
+    <input type="number" placeholder= "{{inputDisable ? '' : '请输入胸腔液体水平'}}" value="{{thoracic_fluid_content}}" bindinput="inputChange" data-field="thoracic_fluid_content" disabled="{{inputDisable}}" style="pointer-events:{{inputDisable?'none':'auto'}};"/>
+  </view>
+
+  <text class="container_text">阻力</text>
+  <view class="section">
+    <text>外周血管阻力(dyn·s/cm⁵)</text>
+    <input type="number" placeholder="{{inputDisable ? '' : '请输入外周血管阻力'}}" value="{{SVR}}" bindinput="inputChange" data-field="SVR" disabled="{{inputDisable}}" style="pointer-events:{{inputDisable?'none':'auto'}};"/>
+  </view>
+  <view class="section">
+    <text>外周血管阻力指数(BSA)</text>
+    <input type="number" placeholder="{{inputDisable ? '' : '请输入外周血管阻力'}}" value="{{SVRI}}" bindinput="inputChange" data-field="SVRI" disabled="{{inputDisable}}" style="pointer-events:{{inputDisable?'none':'auto'}};"/>
+  </view>
+
+  <text class="container_text">心脏</text>
+  <view class="section">
+    <text>心肌收缩指数</text>
+    <input type="digit" placeholder="{{inputDisable ? '' : '请输入心肌收缩指数'}}" value="{{ICON}}" bindinput="inputChange" data-field="ICON" disabled="{{inputDisable}}" style="pointer-events:{{inputDisable?'none':'auto'}};"/>
+  </view>
+  <view class="section">
+    <text>收缩时间比率</text>
+    <input type="digit" placeholder="{{inputDisable ? '' : '请输入收缩时间比率'}}" value="{{STR}}" bindinput="inputChange" data-field="STR" disabled="{{inputDisable}}" style="pointer-events:{{inputDisable?'none':'auto'}};"/>
+  </view>
+  <view class="section">
+    <text>预射血时间(ms)</text>
+    <input type="number" placeholder="{{inputDisable ? '' : '请输入预射血时间'}}" value="{{PEP}}" bindinput="inputChange" data-field="PEP" disabled="{{inputDisable}}" style="pointer-events:{{inputDisable?'none':'auto'}};"/>
+  </view>
+
+  <text class="container_text">血压</text>
+  <view class="section">
+    <text>平均动脉压(mmHg)</text>
+    <input type="number" placeholder="{{inputDisable ? '' : '请输入平均动脉压'}}" value="{{MAP}}" bindinput="inputChange" data-field="MAP" disabled="{{inputDisable}}" style="pointer-events:{{inputDisable?'none':'auto'}};"/>
+  </view>
+  <view class="section">
+    <text>收缩动脉压(mmHg)</text>
+    <input type="number" placeholder="{{inputDisable ? '' : '请输入收缩动脉压'}}" value="{{SBP}}" bindinput="inputChange" data-field="SBP" disabled="{{inputDisable}}" style="pointer-events:{{inputDisable?'none':'auto'}};"/>
+  </view>
+  <view class="section">
+    <text>舒张动脉压(mmHg)</text>
+    <input type="number" placeholder="{{inputDisable ? '' : '请输入舒张动脉压'}}" value="{{DBP}}" bindinput="inputChange" data-field="DBP" disabled="{{inputDisable}}" style="pointer-events:{{inputDisable?'none':'auto'}};"/>
+  </view>
+
+  <text class="container_text">决策支持的参数</text>
+  <view class="section">
+    <text>左心室射血时间(ms)</text>
+    <input type="number" placeholder="{{inputDisable ? '' : '请输入左心室射血时间'}}" value="{{LVET}}" bindinput="inputChange" data-field="LVET" disabled="{{inputDisable}}" style="pointer-events:{{inputDisable?'none':'auto'}};"/>
+  </view>
+  <view class="section">
+    <text>心肌收缩力指数变异(%)</text>
+    <input type="number" placeholder="{{inputDisable ? '' : '请输入心肌收缩力指数变异'}}" value="{{VIC}}" bindinput="inputChange" data-field="VIC" disabled="{{inputDisable}}" style="pointer-events:{{inputDisable?'none':'auto'}};"/>
+  </view>
+  
+
+  <view class="section_button">
+    <button class="container_button" bindtap="saveRecord" disabled="{{inputDisable}}">保存记录</button>
+  </view>
+</view>
