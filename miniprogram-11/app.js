@@ -8,7 +8,7 @@ App({
 
     //微信云初始化
     wx.cloud.init({
-      env: "cloud1-6g3korgw5bbc4feb", // 替换为您的云开发环境 ID
+      env: "", // 替换为您的云开发环境 ID
       traceUser: true
     })
 
