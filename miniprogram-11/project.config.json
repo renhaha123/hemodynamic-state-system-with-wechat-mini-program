@@ -1,5 +1,5 @@
 {
-  "appid": "wxdeacd70086abda51",
+  "appid": "",
   "compileType": "miniprogram",
   "libVersion": "3.5.5",
   "packOptions": {
@@ -38,4 +38,5 @@
     "tabSize": 2
   },
   "simulatorPluginLibVersion": {}
+
 }
